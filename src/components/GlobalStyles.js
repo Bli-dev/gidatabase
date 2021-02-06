@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     box-sizing: border-box;
     color: rgb(223, 223, 223);
-    text-shadow: 1px 1px 0px black
+    text-shadow: 1px 1px 0px black;
 }
 
 body{

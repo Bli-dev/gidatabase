@@ -3,8 +3,8 @@ import { fetchItemInfoURL } from '../api'
 
 export const fetchItemInfoAction = (entity, item) => async (dispatch) => {
     const getItemInfo = await axios.get(fetchItemInfoURL(entity, item));
-    
-    console.log(getItemInfo.data)
+
+    console.log(getItemInfo)
 
     dispatch({
         type: 'ITEM_INFO',

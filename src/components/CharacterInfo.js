@@ -7,44 +7,15 @@ import {charPortraitURL} from '../api'
 import styled from 'styled-components';
 import {motion} from 'framer-motion';
 import { dataContainerStyles } from '../util';
-//VISION ICONS
-import anemo from '../img/anemo.png';
-import cryo from '../img/cryo.png';
-import dendro from '../img/dendro.png';
-import electro from '../img/electro.png';
-import geo from '../img/geo.png';
-import hydro from '../img/hydro.png';
-import pyro from '../img/pyro.png';
+
 //CONVERSIONS
-import {stringToDisplay, rarityConversion} from '../util';
+import {stringToDisplay, rarityConversion, visionTextToImageConverter} from '../util';
 
 const CharacterInfo = () => {
 
     const {selectedItemName, selectedItemData} = useSelector((state) => state.currentActiveData)
 
     console.log(selectedItemData)
-
-    const visionTextToImageConverter = (vision) => {
-        switch (vision) {
-            case 'Anemo':
-                return anemo;
-            case 'Cryo':
-                return cryo;
-            case 'Dendro':
-                return dendro;
-            case 'Electro':
-                return electro;
-            case 'Geo':
-                return geo;
-            case 'Hydro':
-                return hydro;
-            case 'Pyro':
-                return pyro;
-            default:
-                return 'image missing';
-        }
-    }
-
 
     return (
         <SelectedCharacterContainer>
@@ -101,12 +72,13 @@ const SelectedCharacterContainer = styled(dataContainerStyles)`
     height: 80vh;
     padding: 0;
     overflow: hidden;
+    backdrop-filter: none;
 `;
 
 const PortraitContainer = styled(motion.div)`
     width: 45%;
     text-align: center;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
     z-index: 3;
     img{
         max-height: 100%;
@@ -117,8 +89,8 @@ const CharacterDataContainer = styled(motion.div)`
     width: 55%;
     height: 100%;
     padding: 0.5rem 1rem 2rem 0rem;
-    backdrop-filter: blur(10px);
     z-index: 4;
+    backdrop-filter: blur(10px);
     overflow-y: hidden; 
 `
 
@@ -126,7 +98,6 @@ const CharData = styled(motion.div)`
     height: 90%;
     width: 100%;
     position: relative;
-    z-index: 5;
     overflow-y: scroll;
     scroll-behavior: smooth;
     &::-webkit-scrollbar{
