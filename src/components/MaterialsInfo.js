@@ -2,10 +2,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+//COMPONENTS
+import TalentBossMaterials from './TalentBossMaterials';
+import BossMaterial from './BossMaterial';
+
 //STYLES AND MOTION
 
 
-//UTILITIES
+//STRING CONVERSION
+import {stringToDisplay} from '../util'
 
 
 const MaterialsInfo = () => {
@@ -16,8 +21,12 @@ const MaterialsInfo = () => {
     
     return (
         <div>
-            
+            {selectedItemName === 'talent-boss' && <TalentBossMaterials />}
+            {selectedItemName === 'boss-material' && <BossMaterial />}
         </div>
     )
 }
+
+
+
 export default MaterialsInfo;

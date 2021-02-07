@@ -1,11 +1,10 @@
 //REACT AND REDUX
 import React from 'react';
 import { useSelector } from 'react-redux';
-
-//UTILITIES
+//CONVERSIONS
 import { stringToDisplay, rarityConversion, dataContainerStyles } from '../util';
-import {flowerOfLifeIconURL} from '../api'
-
+//ICON URL FROM API 
+import { flowerOfLifeIconURL } from '../api'
 //STYLES AND MOTION
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
@@ -32,7 +31,6 @@ const ArtifactInfo = () => {
 
 const SelectedArtifactContainer = styled(dataContainerStyles)`
     display: flex;
-
 `
 
 const ImageContainer = styled(motion.div)`

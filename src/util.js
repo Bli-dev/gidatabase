@@ -2,9 +2,8 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-//IMAGES
+//RATING STAR IMG
 import star from './img/yellow_star.png';
-
 //VISION ICONS
 import anemo from './img/anemo.png';
 import cryo from './img/cryo.png';
@@ -13,7 +12,63 @@ import electro from './img/electro.png';
 import geo from './img/geo.png';
 import hydro from './img/hydro.png';
 import pyro from './img/pyro.png';
+//MATERIALS ICONS
+import dvalinsClaw from './img/dvalins_claw.png';
+import dvalinsPlume from './img/dvalins_plume.png';
+import dvalinsSigh from './img/dvalins_sigh.png';
+import ringOfBoreas from './img/ring_of_boreas.png';
+import shadowOfTheWarrior from './img/shadow_of_the_warrior.png';
+import shardOfAFoulLegacy from './img/shard_of_a_foul_legacy.png';
+import spiritLocketOfBoreas from './img/spirit_locket_of_boreas.png';
+import tailOfBoreas from './img/tail_of_boreas.png';
+import tuskOfMonocerosCaeli from './img/tusk_of_monoceros_caeli.png';
+import hurricaneSeed from './img/hurricane_seed.png';
+import hoarfrostCore from './img/hoarfrost_core.png';
+import lightningPrism from './img/lightning_prism.png';
+import basaltPillar from './img/basalt_pillar.png';
+import cleansingHeart from './img/cleansing_heart.png';
+import everflameSeed from './img/everflame_seed.png';
 
+
+//MATERIALS TO IMG CONVERSION
+export const materialsToImageConverter = (material) => {
+    switch (material) {
+        case "dvalin's-claw":
+            return dvalinsClaw;
+        case "dvalin's-plume":
+            return dvalinsPlume;
+        case "dvalin's-sigh":
+            return dvalinsSigh;
+        case "ring-of-boreas":
+            return ringOfBoreas;
+        case "shadow-of-the-warrior":
+            return shadowOfTheWarrior;
+        case "shard-of-a-foul-legacy":
+            return shardOfAFoulLegacy;
+        case "spirit-locket-of-boreas":
+            return spiritLocketOfBoreas;
+        case "tail-of-boreas":
+            return tailOfBoreas;
+        case "tusk-of-monoceros-caeli":
+            return tuskOfMonocerosCaeli;
+        case "hurricane-seed":
+            return hurricaneSeed;
+        case "hoarfrost-core":
+            return hoarfrostCore;
+        case "lightning-prism":
+            return lightningPrism;
+        case "basalt-pillar":
+            return basaltPillar;
+        case "cleansing-heart":
+            return cleansingHeart;
+        case "everflame-seed":
+            return everflameSeed;
+        default:
+            return "image missing";
+    }
+}
+
+//RATING NUMBER TO STARS CONVERSION
 export const visionTextToImageConverter = (vision) => {
     switch (vision) {
         case 'Anemo':
@@ -64,7 +119,6 @@ export const rarityConversion = (key, value) => {
         return value;
     }
 }
-
 
 
 //REUSABLE STYLES

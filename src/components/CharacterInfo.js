@@ -7,7 +7,6 @@ import {charPortraitURL} from '../api'
 import styled from 'styled-components';
 import {motion} from 'framer-motion';
 import { dataContainerStyles } from '../util';
-
 //CONVERSIONS
 import {stringToDisplay, rarityConversion, visionTextToImageConverter} from '../util';
 
@@ -76,7 +75,7 @@ const SelectedCharacterContainer = styled(dataContainerStyles)`
 `;
 
 const PortraitContainer = styled(motion.div)`
-    width: 45%;
+    width: 43%;
     text-align: center;
     backdrop-filter: blur(10px);
     z-index: 3;
@@ -86,7 +85,7 @@ const PortraitContainer = styled(motion.div)`
     }
 `
 const CharacterDataContainer = styled(motion.div)`
-    width: 55%;
+    width: 57%;
     height: 100%;
     padding: 0.5rem 1rem 2rem 0rem;
     z-index: 4;
@@ -99,16 +98,6 @@ const CharData = styled(motion.div)`
     width: 100%;
     position: relative;
     overflow-y: scroll;
-    scroll-behavior: smooth;
-    &::-webkit-scrollbar{
-        width: 0.5rem;
-    }
-    &::-webkit-scrollbar-thumb{
-        background-color: rgba(169, 169, 169, 1);
-    }
-    &::-webkit-scrollbar-track{
-        background: transparent;
-    }
 `
 
 const BasicInfoContainer = styled(motion.div)`

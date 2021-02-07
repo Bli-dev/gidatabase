@@ -10,7 +10,6 @@ import CharacterInfo from './CharacterInfo';
 import ArtifactInfo from './ArtifactInfo';
 import MaterialsInfo from './MaterialsInfo';
 import NationsInfo from './NationsInfo';
-
 //STYLES AND MOTION
 import styled from 'styled-components';
 import { motion } from 'framer-motion';

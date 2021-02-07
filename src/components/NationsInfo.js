@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 //UTILITIES
 import { stringToDisplay, visionTextToImageConverter, dataContainerStyles } from '../util';
 
-//STYLES AND ANYMATION
+//STYLES AND ANMATION
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
     
@@ -55,10 +55,13 @@ const SelectedNationContainer = styled(dataContainerStyles)`
 `
 const SubsectionContainer = styled(motion.div)`
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     h2{
         padding-right: 0.5rem;
+    }
+    h3{
+        font-size: 1.3rem;
     }
 `
 

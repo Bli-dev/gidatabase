@@ -10,6 +10,16 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     color: rgb(223, 223, 223);
     text-shadow: 1px 1px 0px black;
+    scroll-behavior: smooth;
+    &::-webkit-scrollbar{
+        width: 0.5rem;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: rgba(169, 169, 169, 1);
+    }
+    &::-webkit-scrollbar-track{
+        background: transparent;
+    }
 }
 
 body{
