@@ -44,7 +44,7 @@ const SelectedEntityContainer = styled(dataContainerStyles)`
 `;
 
 const SelectedEntityContent = styled(motion.div)`
-    width: 120px;
+width: 120px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

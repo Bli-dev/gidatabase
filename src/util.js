@@ -28,7 +28,34 @@ import lightningPrism from './img/lightning_prism.png';
 import basaltPillar from './img/basalt_pillar.png';
 import cleansingHeart from './img/cleansing_heart.png';
 import everflameSeed from './img/everflame_seed.png';
-
+import vtSliver from './img/vt_sliver.png';
+import vtFragment from './img/vt_fragment.png';
+import vtChunk from './img/vt_chunk.png';
+import vtGemstone from './img/vt_gemstone.png';
+import sjSliver from './img/sj_sliver.png';
+import sjFragment from './img/sj_fragment.png';
+import sjChunk from './img/sj_chunk.png';
+import sjGemstone from './img/sj_gemstone.png';
+import vaSliver from './img/va_sliver.png';
+import vaFragment from './img/va_fragment.png';
+import vaChunk from './img/va_chunk.png';
+import vaGemstone from './img/va_gemstone.png';
+import ptSliver from './img/pt_sliver.png';
+import ptFragment from './img/pt_fragment.png';
+import ptChunk from './img/pt_chunk.png';
+import ptGemstone from './img/pt_gemstone.png';
+import vlSliver from './img/vl_sliver.png';
+import vlFragment from './img/vl_fragment.png';
+import vlChunk from './img/vl_chunk.png';
+import vlGemstone from './img/vl_gemstone.png';
+import aaSliver from './img/aa_sliver.png';
+import aaFragment from './img/aa_fragment.png';
+import aaChunk from './img/aa_chunk.png';
+import aaGemstone from './img/aa_gemstone.png';
+import bdSliver from './img/bd_sliver.png';
+import bdFragment from './img/bd_fragment.png';
+import bdChunk from './img/bd_chunk.png';
+import bdGemstone from './img/bd_gemstone.png';
 
 //MATERIALS TO IMG CONVERSION
 export const materialsToImageConverter = (material) => {
@@ -63,6 +90,62 @@ export const materialsToImageConverter = (material) => {
             return cleansingHeart;
         case "everflame-seed":
             return everflameSeed;
+        case "vayuda-turquoise-sliver":
+            return vtSliver;
+        case "vayuda-turquoise-fragment":
+            return vtFragment;
+        case "vayuda-turquoise-chunk":
+            return vtChunk;
+        case "vayuda-turquoise-gemstone":
+            return vtGemstone;
+        case "shivada-jade-sliver":
+            return sjSliver;
+        case "shivada-jade-fragment":
+            return sjFragment;
+        case "shivada-jade-chunk":
+            return sjChunk;
+        case "shivada-jade-gemstone":
+            return sjGemstone;
+        case "vajrada-amethyst-sliver":
+            return vaSliver;
+        case "vajrada-amethyst-fragment":
+            return vaFragment;
+        case "vajrada-amethyst-chunk":
+            return vaChunk;
+        case "vajrada-amethyst-gemstone":
+            return vaGemstone;
+        case "prithiva-topaz-sliver":
+            return ptSliver;
+        case "prithiva-topaz-fragment":
+            return ptFragment;
+        case "prithiva-topaz-chunk":
+            return ptChunk;
+        case "prithiva-topaz-gemstone":
+            return ptGemstone;
+        case "varunada-lazurite-sliver":
+            return vlSliver;
+        case "varunada-lazurite-fragment":
+            return vlFragment;
+        case "varunada-lazurite-chunk":
+            return vlChunk;
+        case "varunada-lazurite-gemstone":
+            return vlGemstone;
+        case "agnidus-agate-sliver":
+            return aaSliver;
+        case "agnidus-agate-fragment":
+            return aaFragment;
+        case "agnidus-agate-chunk":
+            return aaChunk;
+        case "agnidus-agate-gemstone":
+            return aaGemstone;
+        case "brilliant-diamond-sliver":
+            return bdSliver;
+        case "brilliant-diamond-fragment":
+            return bdFragment;
+        case "brilliant-diamond-chunk":
+            return bdChunk;
+        case "brilliant-diamond-gemstone":
+            return bdGemstone;
         default:
             return "image missing";
     }
@@ -90,6 +173,9 @@ export const visionTextToImageConverter = (vision) => {
     }
 }
 
+//TITLE CASE
+export const titleCase = (word) => (word[0].toUpperCase() + word.slice(1));
+
 //STRING CONVERSION
 export const stringToDisplay = (incoming_string) => {
     if (incoming_string === 'traveler-anemo') {
@@ -97,7 +183,7 @@ export const stringToDisplay = (incoming_string) => {
     } else if (incoming_string === 'traveler-geo') {
         return 'TravelerG'
     } else {
-        return incoming_string.split(/-|_/).map(word => word[0].toUpperCase() + word.slice(1)).join(' ');
+        return incoming_string.split(/-|_/).map(word => titleCase(word)).join(' ');
     }
 }
 

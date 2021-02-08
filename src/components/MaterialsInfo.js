@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 //COMPONENTS
 import TalentBossMaterials from './TalentBossMaterials';
 import BossMaterial from './BossMaterial';
-
+import CharacterAscension from './CharacterAscension';
 //STYLES AND MOTION
 
 
@@ -23,6 +23,7 @@ const MaterialsInfo = () => {
         <div>
             {selectedItemName === 'talent-boss' && <TalentBossMaterials />}
             {selectedItemName === 'boss-material' && <BossMaterial />}
+            {selectedItemName === 'character-ascension' && <CharacterAscension />}
         </div>
     )
 }

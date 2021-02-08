@@ -34,7 +34,10 @@ const TalentBossMaterials = () => {
 }
 
 const TalentBossContainer = styled(motion.div)`
-    outline: 1
+    max-height: 90vh;
+    outline: 1px solid red;
+    overflow-y: scroll;
+
 `
 const MaterialDataContainer = styled(dataContainerStyles)`
     width: 60%; 

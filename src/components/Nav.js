@@ -31,6 +31,8 @@ const Nav = () => {
 }
 
 const StyledNav = styled(motion.div)`
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;

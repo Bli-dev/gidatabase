@@ -81,6 +81,7 @@ const PortraitContainer = styled(motion.div)`
     z-index: 3;
     img{
         max-height: 100%;
+        width: auto;
         padding: 1rem 0rem 1rem 0.5rem;
     }
 `
