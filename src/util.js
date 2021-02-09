@@ -75,7 +75,22 @@ import herosWit from './img/heros_wit.png';
 import enhancementOre from './img/enhancement_ore.png';
 import fineEnhancementOre from './img/fine_enhancement_ore.png';
 import mysticEnhancementOre from './img/mystic_enhancement_ore.png';
-
+import callaLily from './img/calla_lily.png';
+import cecilia from './img/cecilia.png';
+import dandelionSeed from './img/dandelion_seed.png';
+import philanemoMushroom from './img/philanemo_mushroom.png';
+import smallLampGrass from './img/small_lamp_grass.png';
+import valberry from './img/valberry.png';
+import windwheelAster from './img/windwheel_aster.png';
+import wolfhook from './img/wolfhook.png';
+import corLapis from './img/cor_lapis.png';
+import glazeLily from './img/glaze_lily.png';
+import jueyunChili from './img/jueyun_chili.png';
+import noctilucousJade from './img/noctilucous_jade.png';
+import qingxin from './img/qingxin.png';
+import silkFlower from './img/silk_flower.png';
+import starconch from './img/starconch.png';
+import violetgrass from './img/violetgrass.png';
 
 //MATERIALS TO IMG CONVERSION
 export const materialsToImageConverter = (material) => {
@@ -204,6 +219,38 @@ export const materialsToImageConverter = (material) => {
             return fineEnhancementOre;
         case "mystic-enhancement-ore":
             return mysticEnhancementOre;
+        case "calla-lily":
+            return callaLily;
+        case "cecilia":
+            return cecilia;
+        case "dandelion-seed":
+            return dandelionSeed;
+        case "philanemo-mushroom":
+            return philanemoMushroom;
+        case "small-lamp-grass":
+            return smallLampGrass;
+        case "valberry":
+            return valberry;
+        case "windwheel-aster":
+            return windwheelAster;
+        case "wolfhook":
+            return wolfhook;
+        case "cor-lapis":
+            return corLapis;
+        case "glaze-lily":
+            return glazeLily;
+        case "jueyun-chili":
+            return jueyunChili;
+        case "noctilucous-jade":
+            return noctilucousJade;
+        case "qingxin":
+            return qingxin;
+        case "silk-flower":
+            return silkFlower;
+        case "starconch":
+            return starconch;
+        case "violetgrass":
+            return violetgrass;
         default:
             return "image missing";
     }
