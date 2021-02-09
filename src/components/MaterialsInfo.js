@@ -9,6 +9,7 @@ import CharacterAscension from './CharacterAscension';
 import CommonAscension from './CommonAscension';
 import ExpMaterials from './ExpMaterials';
 import LocalSpecialties from './LocalSpecialties';
+import TalentBook from './TalentBook';
 //STYLES AND MOTION
 
 
@@ -28,6 +29,7 @@ const MaterialsInfo = () => {
             {selectedItemName === 'character-experience' && <ExpMaterials />}
             {selectedItemName === 'weapon-experience' && <ExpMaterials />}
             {selectedItemName === 'local-specialties' && <LocalSpecialties />}
+            {selectedItemName === 'talent-book' && <TalentBook />}
         </div>
     )
 }

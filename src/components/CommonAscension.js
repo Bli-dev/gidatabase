@@ -25,7 +25,7 @@ const CommonAscension = () => {
                         </ImageContainer>
                         <h1>{stringToDisplay(key)}</h1>
                     </HeaderContainer>
-                    <Line></Line>
+                    <Line />
                     <MaterialDataContainer>
                         <RaritySubclassesContainer>
                         {selectedItemData[key].items.map(sub => (
@@ -75,7 +75,7 @@ const HeaderContainer = styled.div`
 `
 const ImageContainer = styled.div`
     margin-right: 1rem;
-    width: 100px;
+    width: 75px;
     img{
         width: 100%;
     }

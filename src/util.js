@@ -91,6 +91,13 @@ import qingxin from './img/qingxin.png';
 import silkFlower from './img/silk_flower.png';
 import starconch from './img/starconch.png';
 import violetgrass from './img/violetgrass.png';
+import freedom from './img/book_freedom.png';
+import resistance from './img/book_resistance.png';
+import ballad from './img/book_ballad.png';
+import prosperity from './img/book_prosperity.png';
+import diligence from './img/book_diligence.png';
+import bookGold from './img/book_gold.png';
+
 
 //MATERIALS TO IMG CONVERSION
 export const materialsToImageConverter = (material) => {
@@ -251,6 +258,18 @@ export const materialsToImageConverter = (material) => {
             return starconch;
         case "violetgrass":
             return violetgrass;
+        case "freedom":
+            return freedom;
+        case "resistance":
+            return resistance;
+        case "ballad":
+            return ballad;
+        case "prosperity":
+            return prosperity;
+        case "diligence":
+            return diligence;
+        case "gold":
+            return bookGold;
         default:
             return "image missing";
     }
