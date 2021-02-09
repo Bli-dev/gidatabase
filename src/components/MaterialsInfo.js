@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux';
 import TalentBossMaterials from './TalentBossMaterials';
 import BossMaterial from './BossMaterial';
 import CharacterAscension from './CharacterAscension';
+import CommonAscension from './CommonAscension';
+import ExpMaterials from './ExpMaterials';
 //STYLES AND MOTION
 
 
@@ -15,15 +17,16 @@ import {stringToDisplay} from '../util'
 
 const MaterialsInfo = () => {
 
-    const { selectedEntityName, selectedItemName, selectedItemData } = useSelector((state) => state.currentActiveData)
-    
-    console.log(selectedItemData, selectedItemName)
+    const { selectedItemName, selectedItemData } = useSelector((state) => state.currentActiveData)
     
     return (
         <div>
             {selectedItemName === 'talent-boss' && <TalentBossMaterials />}
             {selectedItemName === 'boss-material' && <BossMaterial />}
             {selectedItemName === 'character-ascension' && <CharacterAscension />}
+            {selectedItemName === 'common-ascension' && <CommonAscension />}
+            {selectedItemName === 'character-experience' && <ExpMaterials />}
+            {selectedItemName === 'weapon-experience' && <ExpMaterials/>}
         </div>
     )
 }

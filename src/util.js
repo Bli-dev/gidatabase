@@ -56,6 +56,26 @@ import bdSliver from './img/bd_sliver.png';
 import bdFragment from './img/bd_fragment.png';
 import bdChunk from './img/bd_chunk.png';
 import bdGemstone from './img/bd_gemstone.png';
+import slime from './img/slime_concentrate.png';
+import hilichurlMasks from './img/stained_mask.png';
+import hilichurlArrowheads from './img/weathered_arrowhead.png';
+import samachurlScrolls from './img/forbidden_curse_scroll.png';
+import treasureHoardersInsignia from './img/golden_raven_insignia.png';
+import fatuiInsignias from './img/lieutenants_insignia.png';
+import whopperflowerNectar from './img/energy_nectar.png';
+import hilichurlHorns from './img/black_crystal_horn.png';
+import leyLine from './img/ley_line_sprout.png';
+import boneShards from './img/fossilized_bone_shard.png';
+import mistGrass from './img/mist_grass_wick.png';
+import fatuiKnives from './img/inspectors_sacrificial_knife.png';
+import chaosParts from './img/chaos_core.png';
+import wanderersAdvice from './img/wanderers_advice.png';
+import adventurersExperience from './img/adventurers_experience.png';
+import herosWit from './img/heros_wit.png';
+import enhancementOre from './img/enhancement_ore.png';
+import fineEnhancementOre from './img/fine_enhancement_ore.png';
+import mysticEnhancementOre from './img/mystic_enhancement_ore.png';
+
 
 //MATERIALS TO IMG CONVERSION
 export const materialsToImageConverter = (material) => {
@@ -146,6 +166,44 @@ export const materialsToImageConverter = (material) => {
             return bdChunk;
         case "brilliant-diamond-gemstone":
             return bdGemstone;
+        case "slime":
+            return slime;
+        case "hilichurl-masks":
+            return hilichurlMasks;
+        case "hilichurl-arrowheads":
+            return hilichurlArrowheads;
+        case "samachurl-scrolls":
+            return samachurlScrolls;
+        case "treasure-hoarder-insignias":
+            return treasureHoardersInsignia;
+        case "fatui-insignias":
+            return fatuiInsignias;
+        case "whopperflower-nectar":
+            return whopperflowerNectar;
+        case "hilichurl-horns":
+            return hilichurlHorns;
+        case "ley-line":
+            return leyLine;
+        case "bone-shards":
+            return boneShards;
+        case "mist-grass":
+            return mistGrass;
+        case "fatui-knives":
+            return fatuiKnives;
+        case "chaos-parts":
+            return chaosParts;
+        case "wanderer's-advice":
+            return wanderersAdvice;
+        case "adventurer's-experience":
+            return adventurersExperience;
+        case "hero's-wit":
+            return herosWit;
+        case "enhancement-ore":
+            return enhancementOre;
+        case "fine-enhancement-ore":
+            return fineEnhancementOre;
+        case "mystic-enhancement-ore":
+            return mysticEnhancementOre;
         default:
             return "image missing";
     }
@@ -218,7 +276,7 @@ export const dataContainerStyles = styled(motion.div)`
     background: -webkit-linear-gradient(-45deg, rgba(149,149,149,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(78,78,78,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(135deg, rgba(149,149,149,0.5) 0%,rgba(13,13,13,0.5) 46%,rgba(1,1,1,0.5) 50%,rgba(10,10,10,0.5) 53%,rgba(78,78,78,0.5) 76%,rgba(56,56,56,0.5) 87%,rgba(27,27,27,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#959595', endColorstr='#1b1b1b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-    box-shadow: 5px 5px 5rem rgba(69, 69, 69, 0.7);
-    backdrop-filter: blur(10px);
+    box-shadow: 2px 2px 50px rgba(69, 69, 69, 0.5);
+    backdrop-filter: blur(15px);
 `
     

@@ -42,7 +42,6 @@ const CharacterAscension = () => {
                                 </SourcesContainer>
                            </ItemData> 
                         ))}
-                    
                 </CategoryContainer>
             ))}
         </CharacterAscensionContainer>
@@ -57,7 +56,6 @@ const CharacterAscensionContainer = styled(motion.div)`
 const CategoryContainer = styled(dataContainerStyles)`
     margin-bottom: 2rem;
     padding: 2rem;
-    backdrop-filter: blur(15px);
 `
 const CategoryHeader = styled.div`
     display: flex;
@@ -124,8 +122,7 @@ const SourcesContainer = styled.div`
         margin: 0 auto 1rem auto;
     }
     h3{
-        text-align: justify;
-        text-indent: 2rem;
+        text-align: center;
     }
 `
 export default CharacterAscension;
