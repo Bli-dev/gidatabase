@@ -70,7 +70,8 @@ const Specalties = styled.div`
 `
 const SpecialtyContainer = styled.div` 
     flex-shrink: 0;
-    min-width: 30%;
+    width: 25%;
+    text-align: center;
     display: flex;
     justify-content: space-around;
     margin: 1rem;

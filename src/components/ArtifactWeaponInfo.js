@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 //CONVERSIONS
 import { stringToDisplay, rarityConversion, dataContainerStyles } from '../util';
 //ICON URL FROM API 
-import { flowerOfLifeIconURL } from '../api'
+import { flowerOfLifeIconURL, entityItemIconURL } from '../api'
 //STYLES AND MOTION
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
@@ -16,15 +16,16 @@ const ArtifactInfo = () => {
     return (
         <SelectedArtifactContainer>
             <ImageContainer>
-                <ArtifactImage src={flowerOfLifeIconURL(selectedEntityName, selectedItemName)} alt={`${stringToDisplay(selectedItemName)} image is missing`}/>
+                <ItemImage src={selectedEntityName === 'artifacts' ? flowerOfLifeIconURL(selectedEntityName, selectedItemName) :
+                    entityItemIconURL(selectedEntityName, selectedItemName)} alt={`${stringToDisplay(selectedItemName)} image is missing`} />
             </ImageContainer>
-            <ArtifactInfoContainer>
+            <ArtifactWeaponInfoContainer>
             {Object.keys(selectedItemData).map(key => (
                 <KeyValuePair>
-                    <InfoKey>{`${stringToDisplay(key)}:`}</InfoKey>
+                    <InfoKey>{`${stringToDisplay(key).replace(/([A-Z]+)/g, " $1")}:`}</InfoKey>
                     <InfoValue>{rarityConversion(key, selectedItemData[key])}</InfoValue>
                 </KeyValuePair>))}
-            </ArtifactInfoContainer>
+            </ArtifactWeaponInfoContainer>
         </SelectedArtifactContainer>
     )
 }
@@ -36,13 +37,14 @@ const SelectedArtifactContainer = styled(dataContainerStyles)`
 const ImageContainer = styled(motion.div)`
     width: 30%;
     text-align: center;
+    margin: auto;
 `
 
-const ArtifactImage = styled(motion.img)`
+const ItemImage = styled(motion.img)`
   width: 50%;
 `
 
-const ArtifactInfoContainer = styled(motion.div)`
+const ArtifactWeaponInfoContainer = styled(motion.div)`
     display: flex;
     flex-direction: column;
     justify-content: center;

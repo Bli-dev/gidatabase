@@ -10,22 +10,22 @@ import {titleCase, visionTextToImageConverter, stringToDisplay, materialsToImage
 
 const TalentBook = () => {
 
-    const { selectedItemData } = useSelector((state) => state.currentActiveData);
+    const { selectedItemData, selectedItemName } = useSelector((state) => state.currentActiveData);
 
     console.log(selectedItemData);
 
     return (
-        <TalentBookContainer>
+        <TalentBookWeaponAscensionContainer>
             {Object.keys(selectedItemData).map(book => (
-                <BookContainer>
-                    <BookTitle>
-                        <BookImageContainer>
+                <ItemContainer>
+                    <ItemTitle>
+                        <TitleImageContainer>
                             <img src={materialsToImageConverter(book)} alt="missing"/>
-                        </BookImageContainer>
+                        </TitleImageContainer>
                         <h2>{titleCase(book)}</h2>
-                    </BookTitle>
+                    </ItemTitle>
                     <Line />
-                    <BookData>
+                    <ItemData>
                         <RaritySubclassesContainer>
                             {selectedItemData[book].items.map(item => (
                                 <RaritySubClass>
@@ -34,10 +34,12 @@ const TalentBook = () => {
                                 </RaritySubClass>
                             ))}    
                         </RaritySubclassesContainer>
-                        <Characters>
-                            <h2>Characters</h2>
-                            <h3>{selectedItemData[book].characters.map(character => stringToDisplay(character)).join(", ")}</h3>
-                        </Characters>
+                        <CharactersWeapons>
+                            {selectedItemName === 'talent-book' && <h2>Characters</h2>}
+                            {selectedItemName === 'talent-book' && (<h3>{selectedItemData[book].characters.map(character => stringToDisplay(character)).join(", ")}</h3>)}
+                            {selectedItemName === 'weapon-ascension' && <h2>Weapons</h2>}
+                            {selectedItemName === 'weapon-ascension' && (<h3>{selectedItemData[book].weapons.map(weapon => stringToDisplay(weapon)).join(", ")}</h3>)}
+                        </CharactersWeapons>
                         <Availability>
                             <h2>Availability</h2>
                             <h3>{stringToDisplay(selectedItemData[book].availability.join(", "))}</h3>
@@ -46,19 +48,19 @@ const TalentBook = () => {
                             <h2>Source</h2>
                             <h3>{stringToDisplay(selectedItemData[book].source)}</h3>
                         </Source>
-                    </BookData>
-                </BookContainer>
+                    </ItemData>
+                </ItemContainer>
             ))}
-        </TalentBookContainer>
+        </TalentBookWeaponAscensionContainer>
     )
 }
 
-const TalentBookContainer = styled(motion.div)`
+const TalentBookWeaponAscensionContainer = styled(motion.div)`
 `
-const BookContainer = styled(dataContainerStyles)`
+const ItemContainer = styled(dataContainerStyles)`
     margin: 1.5rem auto;
 `
-const BookTitle = styled.div`
+const ItemTitle = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,26 +72,27 @@ const Line = styled.div`
     width: 75%;
     margin: 0 auto 1rem auto;
 `
-const BookImageContainer = styled.div`
+const TitleImageContainer = styled.div`
     margin-right: 1rem;
     width: 75px;
     img{
         width: 100%;
     }
 `
-const BookData = styled.div`
+const ItemData = styled.div`
     display: flex;
 `
 const RaritySubclassesContainer = styled.div`
-    width: 25%;
+    width: 35%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 `
 const RaritySubClass = styled.div`
     display: flex;
+    align-items: center;
     h2{
-        width: 6rem;
+        width: 8rem;
         text-align: right;
         padding-right: 0.5rem;
     }
@@ -101,22 +104,22 @@ const RaritySubClass = styled.div`
     }
 
 `
-const Characters = styled.div`
+const CharactersWeapons = styled.div`
     width: 40%;  
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 1rem;
+    padding: 0.5rem;
     h2{
         margin-bottom: 0.5rem;
     }
 `
-const Availability = styled(Characters)`
-width: 20%;
+const Availability = styled(CharactersWeapons)`
+width: 15%;
 `
-const Source = styled(Characters)`
+const Source = styled(CharactersWeapons)`
 width: 15%;
 `
 export default TalentBook;

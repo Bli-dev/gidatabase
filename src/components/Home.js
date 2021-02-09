@@ -7,7 +7,7 @@ import {initiaEntitiesFetchAction} from '../actions/initialEntitiesFetchAction';
 import Nav from './Nav';
 import SelectedEntity from './SelectedEntity';
 import CharacterInfo from './CharacterInfo';
-import ArtifactInfo from './ArtifactInfo';
+import ArtifactWeaponInfo from './ArtifactWeaponInfo';
 import MaterialsInfo from './MaterialsInfo';
 import NationsInfo from './NationsInfo';
 //STYLES AND MOTION
@@ -29,10 +29,11 @@ const Home = () => {
         <StyledHome>
             {entities && (<Nav />)}
             {isEntityActive && (<SelectedEntity />)}
-            {isItemActive && selectedEntityName === 'artifacts' && <ArtifactInfo />}
+            {isItemActive && selectedEntityName === 'artifacts' && <ArtifactWeaponInfo />}
             {isItemActive && selectedEntityName === 'characters' && <CharacterInfo />}
             {isItemActive && selectedEntityName === 'materials' && <MaterialsInfo />}
             {isItemActive && selectedEntityName === 'nations' && <NationsInfo />}
+            {isItemActive && selectedEntityName === 'weapons' && <ArtifactWeaponInfo />}
         </StyledHome>
 )
 }

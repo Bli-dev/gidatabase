@@ -97,6 +97,12 @@ import ballad from './img/book_ballad.png';
 import prosperity from './img/book_prosperity.png';
 import diligence from './img/book_diligence.png';
 import bookGold from './img/book_gold.png';
+import aerosiderite from './img/weapon_aerosiderate.png';
+import boreal from './img/weapon_boreal.png';
+import dandelion from './img/weapon_dandelion.png';
+import decarabian from './img/weapon_decarabian.png';
+import elixir from './img/weapon_elixir.png';
+import guyun from './img/weapon_guyun.png';
 
 
 //MATERIALS TO IMG CONVERSION
@@ -270,6 +276,18 @@ export const materialsToImageConverter = (material) => {
             return diligence;
         case "gold":
             return bookGold;
+        case "aerosiderite":
+            return aerosiderite;
+        case "boreal":
+            return boreal;
+        case "dandelion":
+            return dandelion;
+        case "decarabian":
+            return decarabian;
+        case "elixir":
+            return elixir;
+        case "guyun":
+            return guyun;
         default:
             return "image missing";
     }
