@@ -11,6 +11,8 @@ const GlobalStyles = createGlobalStyle`
     color: rgb(223, 223, 223);
     text-shadow: 1px 1px 0px black;
     scroll-behavior: smooth;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 600px;
     &::-webkit-scrollbar{
         width: 0.5rem;
     }

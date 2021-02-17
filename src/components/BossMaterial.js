@@ -15,29 +15,38 @@ const BossMaterial = () => {
 
     return (
         <BossMaterialContainer>
-            {Object.keys(selectedItemData).map(key => (
-                <MaterialContainer>                   
-                        <h2>{selectedItemData[key].name}</h2>
-                        <ImageContainer>
-                            <img src={materialsToImageConverter(selectedItemData[key].id)} alt="missing" />
-                        </ImageContainer>
-                    <SourceContainer>
-                        <h3>Source:</h3>
-                        <h4>{selectedItemData[key].source}</h4>
-                    </SourceContainer>
-                </MaterialContainer>
-            ))}
+            <MaterialContainer>
+                {Object.keys(selectedItemData).map(key => (
+                    <Material>                   
+                            <h2>{selectedItemData[key].name}</h2>
+                            <ImageContainer>
+                                <img src={materialsToImageConverter(selectedItemData[key].id)} alt="missing" />
+                            </ImageContainer>
+                        <SourceContainer>
+                            <h3>Source:</h3>
+                            <h4>{selectedItemData[key].source}</h4>
+                        </SourceContainer>
+                    </Material>
+                ))}
+            </MaterialContainer>
         </BossMaterialContainer>
     )
 }
 
-const BossMaterialContainer = styled(dataContainerStyles)`
+const BossMaterialContainer = styled(motion.div)`
+    max-height: 90vh;
+    padding: 2rem 0;
+    overflow-y: scroll;
+`
+
+const MaterialContainer = styled(dataContainerStyles)`
     max-width: 75%;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 `
-const MaterialContainer = styled(motion.div)`
+const Material = styled(motion.div)`
+    width: 250px;
     display: flex;
     flex-direction: column;
     justify-content: center;

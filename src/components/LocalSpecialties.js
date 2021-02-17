@@ -66,11 +66,10 @@ const Specalties = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    flex: 1 1 auto;
 `
 const SpecialtyContainer = styled.div` 
-    flex-shrink: 0;
-    width: 25%;
+    width: 370px;
+    height: 170px;
     text-align: center;
     display: flex;
     justify-content: space-around;

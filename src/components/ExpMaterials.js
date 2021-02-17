@@ -40,7 +40,7 @@ const ExpMaterials = () => {
 
 const ExpMaterialsContainer = styled.div`
     max-height: 90vh;
-    padding: 3rem 0;
+    padding: 2rem 0;
     overflow-y: scroll;
 `
 const MaterialsContainer = styled(dataContainerStyles)`

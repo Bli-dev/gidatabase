@@ -56,6 +56,9 @@ const TalentBook = () => {
 }
 
 const TalentBookWeaponAscensionContainer = styled(motion.div)`
+    max-height: 90vh;
+    padding: 2rem 0;
+    overflow-y: scroll;
 `
 const ItemContainer = styled(dataContainerStyles)`
     margin: 1.5rem auto;
@@ -81,12 +84,19 @@ const TitleImageContainer = styled.div`
 `
 const ItemData = styled.div`
     display: flex;
+    @media(max-width: 1200px){
+        flex-direction: column;
+        align-items: center;
+    }
 `
 const RaritySubclassesContainer = styled.div`
     width: 35%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @media(max-width: 1200px){
+        width: auto;
+    }
 `
 const RaritySubClass = styled.div`
     display: flex;
@@ -112,14 +122,23 @@ const CharactersWeapons = styled.div`
     align-items: center;
     text-align: center;
     padding: 0.5rem;
+    @media (max-width: 1200px){
+        width: auto;
+    }
     h2{
         margin-bottom: 0.5rem;
     }
 `
 const Availability = styled(CharactersWeapons)`
 width: 15%;
+    @media (max-width: 1200px){
+        width: auto;
+    }
 `
 const Source = styled(CharactersWeapons)`
 width: 15%;
+    @media (max-width: 1200px){
+        width: auto;
+    }
 `
 export default TalentBook;

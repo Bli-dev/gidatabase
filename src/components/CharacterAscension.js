@@ -50,7 +50,7 @@ const CharacterAscension = () => {
 
 const CharacterAscensionContainer = styled(motion.div)`
     max-height: 90vh;
-    padding: 5rem 0;
+    padding: 2rem 0;
     overflow-y: scroll;
 `
 const CategoryContainer = styled(dataContainerStyles)`
@@ -78,6 +78,10 @@ const ItemData = styled.div`
     box-shadow: 1px 1px 15px rgba(69, 69, 69, 0.5);
     margin: 1rem 0;
     border-radius: 10px;
+    @media(max-width: 800px){
+        flex-direction: column;
+    }
+    
 
 `
 const InfoContainer = styled.div`
@@ -87,6 +91,9 @@ const InfoContainer = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
+    @media(max-width: 800px){
+        width: auto;
+    }
 `
 const ImageContainer = styled.div`
     max-width: 100px;
@@ -112,6 +119,9 @@ const SourcesContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @media(max-width: 800px){
+        width: auto;
+    }
     h2{
         text-align: center;
     }

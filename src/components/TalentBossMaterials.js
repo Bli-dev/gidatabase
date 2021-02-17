@@ -43,16 +43,25 @@ const MaterialDataContainer = styled(dataContainerStyles)`
     backdrop-filter: blur(5px); 
     margin: 1rem auto;
     border: 1px solid rgba(255, 255, 255, 0.5);
+    @media (max-width: 800px){
+        width: 85%;
+    }
 `
 const MaterialContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width: 800px){
+        font-size: 0.85rem;
+    }
 `
 const ImageContainer = styled.div`
     width: 100px;
     padding-right: 1rem;
     text-align: center;
+    @media (max-width: 800px){
+        width: 75px;
+    }
     img{
         width: 100%
     }
@@ -66,6 +75,14 @@ const CharacterContainer = styled.div`
     }
     h3{
         font-size: 1.3rem;
+    }
+    @media (max-width: 800px){
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        h3{
+            font-size: 1.2rem;
+        }
     }
 `
 

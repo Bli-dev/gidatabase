@@ -14,7 +14,7 @@ const DomainInfo = () => {
     const { selectedItemData } = useSelector((state) => state.currentActiveData);
 
     return (
-        <DomainDataContainer>
+        <DomainInfoContainer>
             {Object.keys(selectedItemData).length !==0 ? (<DomainData>
                 <DomainName>{selectedItemData.name}</DomainName>
                 <Line />
@@ -108,11 +108,14 @@ const DomainInfo = () => {
                         ))}
                 </RewardsContainer>
             </DomainData>) : (<DataNotFound>Information is not Available</DataNotFound>)}
-        </DomainDataContainer>
+        </DomainInfoContainer>
     )
 }
 
-const DomainDataContainer = styled(motion.div)`
+const DomainInfoContainer = styled(motion.div)`
+    max-height: 90vh;
+    padding: 2rem 0;
+    overflow-y: scroll;
 `
 const DomainData = styled(dataContainerStyles)`
 `
@@ -122,14 +125,19 @@ const DomainName = styled.h1`
 `
 const Line = styled.div`
     height: 2px;
-        background: rgba(169, 169, 169, 0.5);
-        width: 75%;
-        margin: 0 auto 2rem auto;
+    background: rgba(169, 169, 169, 0.5);
+    width: 75%;
+    margin: 0 auto 2rem auto;
 `
 const TypeContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    line-height: 2rem;
+    @media (max-width: 800px){
+        font-size: 0.9rem;
+        line-height: 1.7rem;
+    }
     h2{
         margin-right: 0.5rem;
     }
@@ -139,9 +147,12 @@ const DomainNationContainer = styled(TypeContainer)`
 const DomainLocationContainer = styled(TypeContainer)`
 `
 const RecommendedElementsContainer = styled(TypeContainer)`
-img{
-    width: 2rem;
-}
+    img{
+        width: 2rem;
+        @media(max-width: 800px){
+            width: 1.5rem;
+        }
+    }
 `
 const DomainDescriptionContainer = styled.div`
     width: 75%;
@@ -165,6 +176,10 @@ const Requirements = styled.div`
 `
 const RequirementContainer = styled.div`
     display: flex;
+    @media(max-width: 1200px){
+        flex-direction: column;
+        align-items: center;
+    }
 `
 const Requirement = styled.div`
     width: 30%;
@@ -173,6 +188,9 @@ const Requirement = styled.div`
     justify-content: center;
     align-items: center;
     margin: 1rem;
+    @media(max-width: 1200px){
+        width: auto;
+    }
 `
 const Level = styled.div`
     display: flex;
@@ -191,12 +209,15 @@ const AdventureRank = styled(Level)`
 const RecommendedLevel = styled(Level)`
 `
 const LeyLineDisorderContainer = styled.div`
-width: 70%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     padding: 1rem;
+    @media(max-width: 1200px){
+        width: auto;
+    }
     div{
         height: 2px;
         background: rgba(169, 169, 169, 1);

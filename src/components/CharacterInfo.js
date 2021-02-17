@@ -67,11 +67,16 @@ const CharacterInfo = () => {
 
 const SelectedCharacterContainer = styled(dataContainerStyles)`
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     height: 80vh;
-    padding: 0;
     overflow: hidden;
     backdrop-filter: none;
+    @media (max-width: 1200px){
+        display: grid;
+        padding: 0;
+        place-items: top center;
+        grid-template-areas: "overlap";
+    }
 `;
 
 const PortraitContainer = styled(motion.div)`
@@ -84,14 +89,31 @@ const PortraitContainer = styled(motion.div)`
         width: auto;
         padding: 1rem 0rem 1rem 0.5rem;
     }
+    @media (max-width: 1200px){
+        grid-area: overlap;
+        height: 80vh;
+        width: 100%;
+        overflow: hidden;    
+    }
+
 `
 const CharacterDataContainer = styled(motion.div)`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 57%;
     height: 100%;
     padding: 0.5rem 1rem 2rem 0rem;
     z-index: 4;
     backdrop-filter: blur(10px);
-    overflow-y: hidden; 
+    overflow-y: hidden;
+    @media (max-width: 1200px){
+        top: 0;
+        left: 0;
+        width: 100%;
+        backdrop-filter: blur(15px);
+        grid-area: overlap;
+    }
 `
 
 const CharData = styled(motion.div)`
@@ -113,17 +135,17 @@ const VisionContainer = styled(motion.div)`
 `
 const BasicInfoSection = styled(motion.div)`
     display: flex;
-    padding: 0.1rem 0rem;
+    line-height: 1.5rem;
 `
 const InfoKey = styled.h3`
-    min-width:20%;
+    width: 125px;
     padding: 0.2rem 0.3rem;
     font-size: 1.2rem;
     display: flex;
     align-items: center;
 `
 const InfoValue = styled.p`
-    max-width: 80%;
+    width: 95%;
     padding: 0.2rem 0.3rem 0.2rem 0.2rem;
     font-size: 1.1rem;
     text-align: justify;
@@ -145,8 +167,10 @@ const SubNav = styled(motion.div)`
         display: flex;
         align-items: center;
         justify-content: space-around;
+        flex-wrap: wrap;
         li{
             padding: 0.2rem;
+            font-size: 1.3rem;
             a{
                 text-decoration: none;
             }
@@ -164,7 +188,7 @@ const ListCategoryContainer = styled(motion.div)`
 `
 
 const ListedCategory = styled(motion.div)`
-    padding: 0.5rem 0rem;
+    line-height: 1.5rem;
 `
 
 const CategoryName = styled.h3`

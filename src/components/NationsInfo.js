@@ -46,6 +46,7 @@ const SelectedNationContainer = styled(dataContainerStyles)`
         p{
             padding: 2rem 0.5rem;
             font-size: 1.5rem;
+            line-height: 2rem;
             text-align: justify;
             width: 85%;
             margin: auto;
@@ -57,6 +58,7 @@ const SubsectionContainer = styled(motion.div)`
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    line-height: 2rem;
     h2{
         padding-right: 0.5rem;
     }

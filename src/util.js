@@ -351,7 +351,7 @@ export const rarityConversion = (key, value) => {
 
 //REUSABLE STYLES
 export const dataContainerStyles = styled(motion.div)`
-    width: 80%;
+    width: 80vw;
     margin: 0 auto;
     padding: 1rem;
     border-radius: 2rem;
@@ -362,5 +362,8 @@ export const dataContainerStyles = styled(motion.div)`
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#959595', endColorstr='#1b1b1b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     box-shadow: 2px 2px 50px rgba(69, 69, 69, 0.5);
     backdrop-filter: blur(15px);
+    @media(max-width: 800px){
+        width: 90vw;
+    }
 `
     

@@ -54,7 +54,7 @@ const CommonAscension = () => {
 
 const CommonAscensionContainer = styled(motion.div)`
     max-height: 90vh;
-    padding: 3rem 0;
+    padding: 1rem 0;
     overflow-y: scroll;
 
 `
@@ -89,10 +89,14 @@ const Line = styled.div`
 const MaterialDataContainer = styled.div`
     display: flex;
     margin-top: 1.5rem;
+    @media (max-width: 800px){
+        flex-direction: column;
+        align-items: center;
+    }
 `
 const RaritySubClasses = styled.div`
     display: flex;
-    margin: 0.1rem 0;
+    align-items: flex-end;;
     h3{
         width: 6rem;
         text-align: right;
@@ -110,6 +114,9 @@ const RaritySubclassesContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @media (max-width: 800px){
+        width: auto;
+    }
 `
 const CharactersWeaponsContainer = styled.div`
     width: 50%;
@@ -118,8 +125,11 @@ const CharactersWeaponsContainer = styled.div`
     justify-content: center;
     align-items: center;
     padding: 0.5rem 1rem;
+    @media (max-width: 800px){
+        width: auto;
+    }
     h2{
-        margin-bottom: 0.5rem;
+        margin: 0.5rem 0;
     }
     h3{
         text-align: center;
@@ -127,5 +137,8 @@ const CharactersWeaponsContainer = styled.div`
 `
 const SourcesContainer = styled(CharactersWeaponsContainer)`
     width: 20%;
+    @media (max-width: 800px){
+        width: auto;
+    }
 `
 export default CommonAscension;
