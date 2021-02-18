@@ -2,21 +2,19 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 //CONVERTERS
-import { stringToDisplay, rarityConversion, materialsToImageConverter } from '../util';
+import { rarityConversion, materialsToImageConverter } from '../util';
 //STYLES AND MOTION
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import { dataContainerStyles } from '../util'
-import { flyUp } from './animations';
+import { fadeInSlowerNoStagger } from './animations';
 
 const ExpMaterials = () => {
 
-    const { selectedItemData } = useSelector((state) => state.currentActiveData)
-    console.log(selectedItemData)
-
+    const { selectedItemData, selectedItemName } = useSelector((state) => state.currentActiveData)
+   
     return (
         <ExpMaterialsContainer>
-            <MaterialsContainer>
+            <MaterialsContainer key={`${selectedItemName}_key`} variants={fadeInSlowerNoStagger} initial='initial' animate='final'>
             {selectedItemData.items.map(item => (
                 <Material key={item.id}>
                     <h2>{item.name}</h2>

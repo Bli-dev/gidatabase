@@ -2,12 +2,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 //CONVERTERS
-import {titleCase, stringToDisplay, visionTextToImageConverter, rarityConversion } from '../util';
+import {titleCase, visionTextToImageConverter} from '../util';
 //STYLES AND MOTION
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { dataContainerStyles } from '../util'
-import { flyUp } from './animations';
+import { fadeInSlowerNoStagger } from './animations';
+//UUID
+import { v4 as uuidv4 } from 'uuid';
 
 const DomainInfo = () => {
 
@@ -15,7 +17,8 @@ const DomainInfo = () => {
 
     return (
         <DomainInfoContainer>
-            {Object.keys(selectedItemData).length !==0 ? (<DomainData>
+            {Object.keys(selectedItemData).length !== 0 ? (
+            <DomainData key={selectedItemData.id} variants={fadeInSlowerNoStagger} initial='initial' animate='final'>
                 <DomainName>{selectedItemData.name}</DomainName>
                 <Line />
                 <DomainNationContainer>
@@ -32,7 +35,7 @@ const DomainInfo = () => {
                 </TypeContainer>
                 <RecommendedElementsContainer>
                     <h2>Recommended Elements:</h2>
-                    <h3>{selectedItemData.recommendedElements.map(element => <img src={visionTextToImageConverter(titleCase(element.element))}
+                    <h3>{selectedItemData.recommendedElements.map(element => <img key={uuidv4()} src={visionTextToImageConverter(titleCase(element.element))}
                         alt={titleCase(element.element)} />)}</h3>
                 </RecommendedElementsContainer>
                 <DomainDescriptionContainer>
@@ -42,8 +45,8 @@ const DomainInfo = () => {
                 <RequirementsContainer>
                     <RequirementsHeader>Requirements</RequirementsHeader>
                         <Requirements>
-                        {selectedItemData.requirements.map(element => (
-                            <RequirementContainer>
+                        {selectedItemData.requirements.map(element=> (
+                            <RequirementContainer key={uuidv4()}>
                                 <Requirement>
                                     <Level>
                                         <h2>Level:</h2>
@@ -70,15 +73,14 @@ const DomainInfo = () => {
                 <RewardsContainer>
                     <RewardsHeader>Rewards</RewardsHeader>
                     {selectedItemData.rewards
-                        .filter(item => (item.day == 'mon' || item.day == 'tue' || item.day == 'wed' || item.day == 'sun'))
+                        .filter(item => (item.day === 'mon' || item.day === 'tue' || item.day === 'wed' || item.day === 'sun'))
                         .map(item => (
-                            <RewardContainer key={item.day}>
-                                <DayOfTheWeek>{item.day == 'mon' ? "Monday, Thursday" : item.day == 'tue' ? "Tuesday, Friday" :
-                                    item.day == 'wed' ? "Wednesday, Saturday" : "Sunday"}
+                            <RewardContainer key={uuidv4()}>
+                                <DayOfTheWeek>{item.day === 'mon' ? "Monday, Thursday" : item.day === 'tue' ? "Tuesday, Friday" :
+                                    item.day === 'wed' ? "Wednesday, Saturday" : "Sunday"}
                                 </DayOfTheWeek>
-                                
                                 {item.details.map(domainLevel => (
-                                    <DomainLevel key={domainLevel.level}>
+                                    <DomainLevel key={uuidv4()}>
                                         <RewardData>
                                             <Level>
                                                 <h2>Level:</h2>
@@ -107,7 +109,7 @@ const DomainInfo = () => {
                             </RewardContainer>
                         ))}
                 </RewardsContainer>
-            </DomainData>) : (<DataNotFound>Information is not Available</DataNotFound>)}
+            </DomainData>) : (<DataNotFound key={`${selectedItemData.id}_no_info`} variants={fadeInSlowerNoStagger} initial='initial' animate='final'>Information is not Available</DataNotFound>)}
         </DomainInfoContainer>
     )
 }
@@ -248,7 +250,7 @@ const Mora = styled(Level)`
 `
 const Drops = styled(LeyLineDisorderContainer)`
 `
-const DataNotFound = styled.h1`
+const DataNotFound = styled(motion.h1)`
     margin: 3rem auto;
     text-align: center;
 `

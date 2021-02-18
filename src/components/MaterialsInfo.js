@@ -10,15 +10,10 @@ import CommonAscension from './CommonAscension';
 import ExpMaterials from './ExpMaterials';
 import LocalSpecialties from './LocalSpecialties';
 import TalentBookWeaponAscension from './TalentBookWeaponAscension';
-//STYLES AND MOTION
-
-
-//STRING CONVERSION
-import {stringToDisplay} from '../util'
 
 const MaterialsInfo = () => {
 
-    const { selectedItemName, selectedItemData } = useSelector((state) => state.currentActiveData)
+    const { selectedItemName} = useSelector((state) => state.currentActiveData)
     
     return (
         <div>

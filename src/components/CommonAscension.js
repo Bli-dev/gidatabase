@@ -7,18 +7,18 @@ import { stringToDisplay,rarityConversion, materialsToImageConverter } from '../
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { dataContainerStyles } from '../util'
-import { flyUp } from './animations';
+import { flyUp, fadeInFastStagger } from './animations';
+//UUID
+import { v4 as uuidv4 } from 'uuid';
 
 const CommonAscension = () => {
 
     const { selectedItemData } = useSelector((state) => state.currentActiveData);
 
-    console.log(selectedItemData)
-
     return (
-        <CommonAscensionContainer>
-            {Object.keys(selectedItemData).map((key, i)=> (
-                <MaterialContainer key={i}>
+        <CommonAscensionContainer key='CommonAscensionContainer_key' variants={fadeInFastStagger} initial='initial' animate='final'>
+            {Object.keys(selectedItemData).map(key=> (
+                <MaterialContainer key={uuidv4()} variants={flyUp}>
                     <HeaderContainer>
                         <ImageContainer>
                             <img src={materialsToImageConverter(key)} alt="missing"/>
@@ -29,7 +29,7 @@ const CommonAscension = () => {
                     <MaterialDataContainer>
                         <RaritySubclassesContainer>
                         {selectedItemData[key].items.map(sub => (
-                            <RaritySubClasses key={sub.id}>
+                            <RaritySubClasses key={uuidv4()}>
                                 <h3>{rarityConversion('rarity', sub.rarity)}</h3>
                                 <h2>{stringToDisplay(sub.name)}</h2>
                             </RaritySubClasses>

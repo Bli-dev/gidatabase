@@ -8,6 +8,7 @@ import { flowerOfLifeIconURL, entityItemIconURL } from '../api'
 //STYLES AND MOTION
 import styled  from 'styled-components';
 import { motion } from 'framer-motion';
+import { fadeInSlowerNoStagger } from './animations';
 
 const ArtifactInfo = () => {
 
@@ -15,14 +16,14 @@ const ArtifactInfo = () => {
     
     return (
         <ArtifactWeaponInfoContainer>
-            <SelectedArtifactWeaponContainer>
+            <SelectedArtifactWeaponContainer variants={fadeInSlowerNoStagger} initial='initial' animate='final'>
                 <ImageContainer>
                     <ItemImage selectedEntityName={selectedEntityName} src={selectedEntityName === 'artifacts' ? flowerOfLifeIconURL(selectedEntityName, selectedItemName) :
                         entityItemIconURL(selectedEntityName, selectedItemName)} alt={`${stringToDisplay(selectedItemName)} image is missing`} />
                 </ImageContainer>
                 <ArtifactWeaponDataContainer>
                 {Object.keys(selectedItemData).map(key => (
-                    <KeyValuePair>
+                    <KeyValuePair key={`${key}_pair_key`}>
                         <InfoKey>{`${stringToDisplay(key).replace(/([A-Z]+)/g, " $1")}:`}</InfoKey>
                         <InfoValue>{rarityConversion(key, selectedItemData[key])}</InfoValue>
                     </KeyValuePair>))}
@@ -55,7 +56,7 @@ const ImageContainer = styled(motion.div)`
 `
 
 const ItemImage = styled.img`
-    width: ${({ selectedEntityName }) => selectedEntityName == 'artifacts' ? '50%' : '90%'};
+    width: ${({ selectedEntityName }) => selectedEntityName === 'artifacts' ? '50%' : '90%'};
 `
 
 const ArtifactWeaponDataContainer = styled(motion.div)`
@@ -82,7 +83,7 @@ const InfoKey = styled(motion.h2)`
     margin-right: 0.5rem;
 `
 
-const InfoValue = styled(motion.p)`
+const InfoValue = styled(motion.div)`
     width: 100%;
     padding-left: 0.1rem;
     font-size: 1.3rem;

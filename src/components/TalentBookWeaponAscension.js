@@ -4,20 +4,19 @@ import { useSelector } from 'react-redux';
 //STYLES AND ANIMATION
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import {dataContainerStyles} from '../util';
+import { dataContainerStyles } from '../util';
+import {flyUp, fadeInFastStagger} from './animations'
 //CONVERTERS
-import {titleCase, visionTextToImageConverter, stringToDisplay, materialsToImageConverter, rarityConversion } from '../util'
+import {titleCase, stringToDisplay, materialsToImageConverter, rarityConversion } from '../util'
 
 const TalentBook = () => {
 
     const { selectedItemData, selectedItemName } = useSelector((state) => state.currentActiveData);
 
-    console.log(selectedItemData);
-
     return (
-        <TalentBookWeaponAscensionContainer>
+        <TalentBookWeaponAscensionContainer key={`${selectedItemName}_key`} variants={fadeInFastStagger} initial='initial' animate='final'>
             {Object.keys(selectedItemData).map(book => (
-                <ItemContainer>
+                <ItemContainer key={`${book}_key`} variants={flyUp}>
                     <ItemTitle>
                         <TitleImageContainer>
                             <img src={materialsToImageConverter(book)} alt="missing"/>
@@ -28,7 +27,7 @@ const TalentBook = () => {
                     <ItemData>
                         <RaritySubclassesContainer>
                             {selectedItemData[book].items.map(item => (
-                                <RaritySubClass>
+                                <RaritySubClass key={`${book}${item.rarity}`}>
                                     <h2>{rarityConversion('rarity', item.rarity)}</h2>
                                     <h3>{item.name}</h3>
                                 </RaritySubClass>

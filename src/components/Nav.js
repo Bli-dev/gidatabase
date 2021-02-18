@@ -1,8 +1,9 @@
 //REACT AND REDUX
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-//ACTION
+//ACTIONS
 import { fetchEntityContentAction } from '../actions/fetchEntityContentAction';
+import { resetEntityAction } from '../actions/resetEntityAction';
 //STRING CONVRTION
 import { stringToDisplay } from '../util';
 //STYLES AND ANIMATION
@@ -13,23 +14,20 @@ import { motion } from 'framer-motion';
 
 const Nav = () => {
 
-    const {entities} = useSelector((state) => state.initialEntities);
+    const { entities } = useSelector((state) => state.initialEntities);
     const dispatch = useDispatch();
     
     const fetchEntityContent = (entity) => {
-        dispatch(fetchEntityContentAction(entity))
+        dispatch(resetEntityAction);
+        dispatch(fetchEntityContentAction(entity))    
     }
 
     return (
         <StyledNav>
             {entities.map((entity, i) => (entity !== 'elements' &&
-                <ButtonContainer>
-                    <button onClick={() => fetchEntityContent(entity)} key={i}>{stringToDisplay(entity)}</button>
-                    <LinesContainer>
-                        <Line1 />
-                        <Line2 />
-                    </LinesContainer>
-                </ButtonContainer>
+                <Button onClick={() => fetchEntityContent(entity)} key={i}
+                whileHover={{cursor: 'pointer', scale: 1.3}}>
+                {stringToDisplay(entity)}</Button>
             ))}
         </StyledNav>
     ) 
@@ -47,34 +45,16 @@ const StyledNav = styled(motion.div)`
     margin: auto;
     min-height: 10vh;
     @media(max-width: 800px){
-        width: 90%
+        width: 85%
     }
 `
-
-const ButtonContainer = styled(motion.div)`
-    button{
-        border: none;
-        background: transparent;
-        outline: none;
-        font-size: 1.5rem;
-        padding: 0.2rem;
-        border-radius: 2rem;
-        &:hover{
-            cursor: pointer;
-            box-shadow: 1px 1px 15px white;
-        }
-    }
-`
-const LinesContainer = styled(motion.div)`
-    display: flex;
-    justify-content: center;
-`
-const Line1 = styled(motion.div)`
-    height: 2px;
-    background:white;
-    width: 0%;
-`
-const Line2 = styled(Line1)`
+const Button = styled(motion.button)`
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 2rem;
 `
 
 export default Nav;

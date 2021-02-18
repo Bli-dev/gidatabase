@@ -13,6 +13,11 @@ const dataFetchReducer = (state = initialState, action) => {
                 isEntityActive: action.payload.isEntityActive,
                 isItemActive: action.isItemActive
             }
+        case 'ENTITY_INACTIVE':
+            return {
+                ...state,
+                isEntityActive: action.payload.isEntityActive
+            }
         case 'ITEM_INFO':
             return {
                 ...state,

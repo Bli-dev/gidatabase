@@ -7,18 +7,16 @@ import {titleCase, stringToDisplay, materialsToImageConverter } from '../util';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { dataContainerStyles } from '../util'
-import { flyUp } from './animations';
+import { flyUp, fadeInFastStagger } from './animations';
 
 const LocalSpecialties = () => {
 
     const { selectedItemData } = useSelector((state) => state.currentActiveData);
 
-    console.log(selectedItemData)
-
     return (
-        <LocalSpecialtiesContainer>
+        <LocalSpecialtiesContainer key='LocalSpecialties_key' variants={fadeInFastStagger} initial='initial' animate='final'>
             {Object.keys(selectedItemData).map((region, i)=> (
-                <RegionContainer key={i}>
+                <RegionContainer key={i} variants={flyUp}>
                     <Region>
                         <h1>{titleCase(region)}</h1>
                     </Region>

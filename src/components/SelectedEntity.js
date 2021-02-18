@@ -9,7 +9,9 @@ import { stringToDisplay } from '../util';
 //STYLES AND ANIMATION
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import {dataContainerStyles} from '../util';
+import { dataContainerStyles } from '../util';
+import { fadeInFastStagger, flyUp } from './animations';
+//UUID
 
 
 const SelectedEntity = () => {
@@ -23,16 +25,18 @@ const SelectedEntity = () => {
 
     return (
         <SelectedEntityContainer>
-            <SelectedEntityData>
+            <SelectedEntityData variants={fadeInFastStagger} initial='initial' animate='final' exit='exit' key={`${selectedEntityName}_key`}>
                 {selectedEntityItems.map(item =>
-                    <SelectedEntityContent selectedEntityName={selectedEntityName} onClick={() => fetchItemData(selectedEntityName, item)} key={item}>
-                        {(selectedEntityName === 'artifacts' && <img src={flowerOfLifeIconURL(selectedEntityName, item)} alt={item}></img>) ||
-                            (selectedEntityName === 'characters' && <img src={entityItemIconURL(selectedEntityName, item)} alt={item}></img>) ||
-                            (selectedEntityName === 'elements' && <img src={entityItemIconURL(selectedEntityName, item)} alt={item}></img>) ||
-                            (selectedEntityName === 'weapons' && <img src={entityItemIconURL(selectedEntityName, item)} alt={item}></img>)}
-                        <ItemName>{stringToDisplay(item)}</ItemName>
-                    </SelectedEntityContent>
-                    )}
+                    <Hide key={`${item}_list_key`} whileHover={{scale: 1.1}}>
+                        <SelectedEntityContent variants={flyUp}  selectedEntityName={selectedEntityName} onClick={() => fetchItemData(selectedEntityName, item)}>
+                            {(selectedEntityName === 'artifacts' && <img src={flowerOfLifeIconURL(selectedEntityName, item)} alt={item}></img>) ||
+                                (selectedEntityName === 'characters' && <img src={entityItemIconURL(selectedEntityName, item)} alt={item}></img>) ||
+                                (selectedEntityName === 'elements' && <img src={entityItemIconURL(selectedEntityName, item)} alt={item}></img>) ||
+                                (selectedEntityName === 'weapons' && <img src={entityItemIconURL(selectedEntityName, item)} alt={item}></img>)}
+                            <ItemName>{stringToDisplay(item)}</ItemName>
+                        </SelectedEntityContent>
+                    </Hide>
+                        )}
             </SelectedEntityData>
         </SelectedEntityContainer>
     )
@@ -50,12 +54,16 @@ const SelectedEntityData = styled(dataContainerStyles)`
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: flex-start;
-`;
+`
+
+const Hide = styled(motion.div)`
+    overflow: hidden;
+`
 
 const SelectedEntityContent = styled(motion.div)`
-    width: ${({ selectedEntityName }) => selectedEntityName == 'artifacts' || selectedEntityName == 'characters' ? '185px' : selectedEntityName == 'weapons' ? '200px' : '300px'};
-    height: ${({ selectedEntityName }) => selectedEntityName == 'artifacts' ? '185px' : selectedEntityName == 'weapons' ? '200px' : selectedEntityName == 'domains' ? '75px' : 'auto'};
-    font-size: ${({selectedEntityName}) => selectedEntityName == 'artifacts' || selectedEntityName == 'weapons' ? `1.1rem` : `1.3rem`};
+    width: ${({ selectedEntityName }) => selectedEntityName === 'artifacts' || selectedEntityName === 'characters' ? '185px' : selectedEntityName === 'weapons' ? '200px' : '300px'};
+    height: ${({ selectedEntityName }) => selectedEntityName === 'artifacts' ? '185px' : selectedEntityName === 'weapons' ? '200px' : selectedEntityName === 'domains' ? '75px' : 'auto'};
+    font-size: ${({selectedEntityName}) => selectedEntityName === 'artifacts' || selectedEntityName === 'weapons' ? `1.1rem` : `1.3rem`};
     display: flex;
     flex-direction: column;
     justify-content: space-around;;

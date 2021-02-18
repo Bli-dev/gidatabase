@@ -4,41 +4,44 @@ import { useSelector } from 'react-redux';
 //STYLES AND ANIMATION
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import {dataContainerStyles} from '../util';
+import { dataContainerStyles } from '../util';
+import { flyUp, fadeInFastStagger } from './animations';
 //CONVERTERS
-import {titleCase, visionTextToImageConverter, stringToDisplay, materialsToImageConverter, rarityConversion} from '../util'
+import { titleCase, visionTextToImageConverter, stringToDisplay, materialsToImageConverter, rarityConversion } from '../util'
+//UUID
+import { v4 as uuidv4 } from 'uuid';
 
 const CharacterAscension = () => {
 
-    const { selectedItemData } = useSelector((state) => state.currentActiveData);
+    const { selectedItemData} = useSelector((state) => state.currentActiveData);
 
     return (
-        <CharacterAscensionContainer>
-            {Object.keys(selectedItemData).map(key => (
-                <CategoryContainer>
+        <CharacterAscensionContainer key='CharacterAscension_key' variants={fadeInFastStagger} initial='initial' animate='final'>
+            {Object.keys(selectedItemData).map(objectKey => (
+                <CategoryContainer key={`${objectKey}_key`} variants={flyUp}>
                     <CategoryHeader>
                         <VisionContainer>
-                            {key !== 'traveler' && (<img src={visionTextToImageConverter(titleCase(key))} alt="missing" />)}
+                            {objectKey !== 'traveler' && (<img src={visionTextToImageConverter(titleCase(objectKey))} alt="missing" />)}
                         </VisionContainer>
-                        <h1>{titleCase(key)}</h1>
+                        <h1>{titleCase(objectKey)}</h1>
                     </CategoryHeader>
                     <Line></Line>
-                        {Object.keys(selectedItemData[key]).map(subKey => (
-                            <ItemData>
+                        {Object.keys(selectedItemData[objectKey]).map(subKey => (
+                            <ItemData key={uuidv4()}>
                                 <InfoContainer>
                                     <ImageContainer>
-                                        <img src={materialsToImageConverter(selectedItemData[key][subKey].id)} alt=""/>
+                                        <img src={materialsToImageConverter(selectedItemData[objectKey][subKey].id)} alt=""/>
                                     </ImageContainer>
-                                    <h3>{stringToDisplay(selectedItemData[key][subKey].name)}</h3>
+                                    <h3>{stringToDisplay(selectedItemData[objectKey][subKey].name)}</h3>
                                     <RarityContainer>
                                         <h2>Rarity:</h2>
-                                        <h3>{rarityConversion('rarity', selectedItemData[key][subKey].rarity)}</h3>
+                                        <h3>{rarityConversion('rarity', selectedItemData[objectKey][subKey].rarity)}</h3>
                                     </RarityContainer>
                                 </InfoContainer>
                                 <SourcesContainer>
                                     <h2>Sources</h2>
                                     <div></div>
-                                    <h3>{selectedItemData[key][subKey].sources.join(', ')}</h3>
+                                    <h3>{selectedItemData[objectKey][subKey].sources.join(', ')}</h3>
                                 </SourcesContainer>
                            </ItemData> 
                         ))}

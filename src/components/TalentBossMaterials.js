@@ -7,17 +7,19 @@ import { stringToDisplay, materialsToImageConverter } from '../util';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { dataContainerStyles } from '../util'
-import { flyUp } from './animations';
-    
+import { flyUp, fadeInFastStagger } from './animations';
+//UUID
+import { v4 as uuidv4 } from 'uuid';   
+
 const TalentBossMaterials = () => {
 
     const {selectedItemData} = useSelector((state) => state.currentActiveData)
 
     return (
-        <TalentBossContainer>
+        <TalentBossContainer key={'TalentBossMaterial_key'} variants={fadeInFastStagger} initial='initial' animate='final'>
             {Object.keys(selectedItemData).map((key) => (
-                <MaterialDataContainer variants={flyUp} initial='hidden' animate='show'>
-                    <MaterialContainer id={selectedItemData[key].id}>
+                <MaterialDataContainer key={uuidv4()} variants={flyUp}>
+                    <MaterialContainer key={selectedItemData[key].id}>
                         <ImageContainer>
                             <img src={materialsToImageConverter(key)} alt="missing"/>
                         </ImageContainer>

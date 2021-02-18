@@ -7,17 +7,18 @@ import {charPortraitURL} from '../api'
 import styled from 'styled-components';
 import {motion} from 'framer-motion';
 import { dataContainerStyles } from '../util';
+import { fadeInSlowerNoStagger } from './animations';
 //CONVERSIONS
-import {stringToDisplay, rarityConversion, visionTextToImageConverter} from '../util';
+import { stringToDisplay, rarityConversion, visionTextToImageConverter } from '../util';
+//UUID
+import { v4 as uuidv4 } from 'uuid';
 
 const CharacterInfo = () => {
 
     const {selectedItemName, selectedItemData} = useSelector((state) => state.currentActiveData)
 
-    console.log(selectedItemData)
-
     return (
-        <SelectedCharacterContainer>
+        <SelectedCharacterContainer key={`${selectedItemName}_key`} variants={fadeInSlowerNoStagger} initial='initial' animate='final'>
             <PortraitContainer>
                 <VisionContainer>
                     <img src={visionTextToImageConverter(selectedItemData.vision)} alt={selectedItemData.vision}/>
@@ -37,7 +38,7 @@ const CharacterInfo = () => {
                 <BasicInfoContainer id='top'>
                     {Object.keys(selectedItemData).map(key => (
                         typeof selectedItemData[key] !== 'object' &&
-                        <BasicInfoSection>
+                        <BasicInfoSection key={uuidv4()}>
                             <InfoKey>{`${stringToDisplay(key)}:`}</InfoKey>
                             <InfoValue>{rarityConversion(key, selectedItemData[key]) }</InfoValue>
                         </BasicInfoSection>
@@ -45,16 +46,18 @@ const CharacterInfo = () => {
                 </BasicInfoContainer>
     {Object.keys(selectedItemData).map(key => (
             typeof selectedItemData[key] == 'object' &&
-        <ListCategoryContainer id={key}>
+        <ListCategoryContainer key={uuidv4()} id={key}>
             <h2>{key === 'constellations' ?  'Constellations' : key === 'passiveTalents' ? 'Passive Talents' : 'Active Talents'}</h2>
                 {selectedItemData[key].map((item, i)=> 
                 <ListedCategory key={i}>
                     <CategoryName>{`${item.unlock}: ${item.name}`}</CategoryName>
                     <CategoryDescription>{item.description}</CategoryDescription>
-                    {item.upgrades && <CategoryData>{item.upgrades.map(value => <SkillInfo>
-                            <h4>{`${value.name}:`}</h4>
-                            <p>{`${value.value};`}</p>
-                    </SkillInfo>)}</CategoryData>}
+                        {item.upgrades && <CategoryData>{item.upgrades.map(value =>
+                            <SkillInfo key={uuidv4()}>
+                                <h4>{`${value.name}:`}</h4>
+                                <p>{`${value.value};`}</p>
+                            </SkillInfo>)}
+                        </CategoryData>}
                 </ListedCategory>
                 )}
         </ListCategoryContainer>
@@ -69,11 +72,11 @@ const SelectedCharacterContainer = styled(dataContainerStyles)`
     display: flex;
     justify-content: center;
     height: 80vh;
+    padding: 0;
     overflow: hidden;
     backdrop-filter: none;
     @media (max-width: 1200px){
         display: grid;
-        padding: 0;
         place-items: top center;
         grid-template-areas: "overlap";
     }
@@ -84,6 +87,7 @@ const PortraitContainer = styled(motion.div)`
     text-align: center;
     backdrop-filter: blur(10px);
     z-index: 3;
+        border-radius: 2rem;   
     img{
         max-height: 100%;
         width: auto;
@@ -93,7 +97,8 @@ const PortraitContainer = styled(motion.div)`
         grid-area: overlap;
         height: 80vh;
         width: 100%;
-        overflow: hidden;    
+        overflow: hidden; 
+    
     }
 
 `
@@ -113,6 +118,7 @@ const CharacterDataContainer = styled(motion.div)`
         width: 100%;
         backdrop-filter: blur(15px);
         grid-area: overlap;
+        border-radius: 2rem;
     }
 `
 
@@ -144,7 +150,7 @@ const InfoKey = styled.h3`
     display: flex;
     align-items: center;
 `
-const InfoValue = styled.p`
+const InfoValue = styled.div`
     width: 95%;
     padding: 0.2rem 0.3rem 0.2rem 0.2rem;
     font-size: 1.1rem;

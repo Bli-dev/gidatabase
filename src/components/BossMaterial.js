@@ -6,18 +6,19 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { dataContainerStyles } from '../util';
+import { fadeInSlowerNoStagger } from './animations';
 //CONVERSIONS
 import {materialsToImageConverter} from '../util';
 
 const BossMaterial = () => {
 
-    const {selectedItemData} = useSelector((state) => state.currentActiveData)
+    const {selectedItemData, selectedItemName} = useSelector((state) => state.currentActiveData)
 
     return (
         <BossMaterialContainer>
-            <MaterialContainer>
+            <MaterialContainer key={`${selectedItemName}_key`} variants={fadeInSlowerNoStagger} initial='initial' animate='final'>
                 {Object.keys(selectedItemData).map(key => (
-                    <Material>                   
+                    <Material key={selectedItemData[key].id}>
                             <h2>{selectedItemData[key].name}</h2>
                             <ImageContainer>
                                 <img src={materialsToImageConverter(selectedItemData[key].id)} alt="missing" />

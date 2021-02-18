@@ -13,7 +13,7 @@ import NationsInfo from './NationsInfo';
 import DomainInfo from './DomainInfo';
 //STYLES AND MOTION
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion} from 'framer-motion';
 
 
 const Home = () => {
@@ -24,18 +24,18 @@ const Home = () => {
     }, [dispatch])
 
     const {entities} = useSelector((state) => state.initialEntities);
-    const { isEntityActive, selectedEntityName, isItemActive} = useSelector((state) => state.currentActiveData);
+    const {isEntityActive, selectedEntityName, isItemActive} = useSelector((state) => state.currentActiveData);
     
     return (
         <StyledHome>
-            {entities && (<Nav />)}
-            {isEntityActive && (<SelectedEntity />)}
-            {isItemActive && selectedEntityName === 'artifacts' && <ArtifactWeaponInfo />}
-            {isItemActive && selectedEntityName === 'characters' && <CharacterInfo />}
-            {isItemActive && selectedEntityName === 'domains' && <DomainInfo />}
-            {isItemActive && selectedEntityName === 'materials' && <MaterialsInfo />}
-            {isItemActive && selectedEntityName === 'nations' && <NationsInfo />}
-            {isItemActive && selectedEntityName === 'weapons' && <ArtifactWeaponInfo />}
+                {entities && (<Nav />)}
+                {isEntityActive && (<SelectedEntity />)}
+                {isItemActive && selectedEntityName === 'artifacts' && <ArtifactWeaponInfo  />}
+                {isItemActive && selectedEntityName === 'characters' && <CharacterInfo />}
+                {isItemActive && selectedEntityName === 'domains' && <DomainInfo  />}
+                {isItemActive && selectedEntityName === 'materials' && <MaterialsInfo  />}
+                {isItemActive && selectedEntityName === 'nations' && <NationsInfo  />}
+                {isItemActive && selectedEntityName === 'weapons' && <ArtifactWeaponInfo />}
         </StyledHome>
 )
 }
