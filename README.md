@@ -8,11 +8,11 @@ This is my first ever built project in React.js. Sort of a database based on the
 
 Change directory into app's main folder.
 
-#### npm install
+### npm install
 
 Will install all modules listed as dependencies in package.json.
 
-#### npm start
+### npm start
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
