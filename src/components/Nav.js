@@ -45,7 +45,8 @@ const StyledNav = styled(motion.div)`
     margin: auto;
     min-height: 10vh;
     @media(max-width: 800px){
-        width: 85%
+        width: 85%;
+        padding: 0.3rem 0;
     }
 `
 const Button = styled(motion.button)`

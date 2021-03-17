@@ -58,6 +58,11 @@ const SelectedNationContainer = styled(dataContainerStyles)`
             width: 85%;
             margin: auto;
             text-indent: 2rem;
+            @media (max-width: 800px){
+                font-size: 1.3rem;
+                width: 95%;
+                border-radius: 2rem;
+            }
         }
 
 `
@@ -66,10 +71,10 @@ const SubsectionContainer = styled(motion.div)`
     align-items: flex-end;
     justify-content: center;
     line-height: 2rem;
-    h2{
+    h2{ text-align: right;
         padding-right: 0.5rem;
     }
-    h3{
+    h3{ text-align: left;
         font-size: 1.3rem;
     }
 `

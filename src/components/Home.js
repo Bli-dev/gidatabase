@@ -11,6 +11,7 @@ import ArtifactWeaponInfo from './ArtifactWeaponInfo';
 import MaterialsInfo from './MaterialsInfo';
 import NationsInfo from './NationsInfo';
 import DomainInfo from './DomainInfo';
+import ErrorComponent from './ErrorComponent';
 //STYLES AND MOTION
 import styled from 'styled-components';
 import { motion} from 'framer-motion';
@@ -24,18 +25,20 @@ const Home = () => {
     }, [dispatch])
 
     const {entities} = useSelector((state) => state.initialEntities);
-    const {isEntityActive, selectedEntityName, isItemActive} = useSelector((state) => state.currentActiveData);
+    const { isEntityActive, selectedEntityName, isItemActive } = useSelector((state) => state.currentActiveData);
+    const {error} = useSelector((state) => state.error)
     
     return (
         <StyledHome>
                 {entities && (<Nav />)}
-                {isEntityActive && (<SelectedEntity />)}
-                {isItemActive && selectedEntityName === 'artifacts' && <ArtifactWeaponInfo  />}
-                {isItemActive && selectedEntityName === 'characters' && <CharacterInfo />}
-                {isItemActive && selectedEntityName === 'domains' && <DomainInfo  />}
-                {isItemActive && selectedEntityName === 'materials' && <MaterialsInfo  />}
-                {isItemActive && selectedEntityName === 'nations' && <NationsInfo  />}
-                {isItemActive && selectedEntityName === 'weapons' && <ArtifactWeaponInfo />}
+            {error ? <ErrorComponent /> :
+                isEntityActive ? <SelectedEntity /> :
+                    isItemActive && selectedEntityName === 'artifacts' ? <ArtifactWeaponInfo /> :
+                        isItemActive && selectedEntityName === 'characters' ? <CharacterInfo /> :
+                            isItemActive && selectedEntityName === 'domains' ? <DomainInfo /> :
+                                isItemActive && selectedEntityName === 'materials' ? <MaterialsInfo /> :
+                                    isItemActive && selectedEntityName === 'nations' ? <NationsInfo /> :
+                                        isItemActive && selectedEntityName === 'weapons' ? <ArtifactWeaponInfo /> : ''}
         </StyledHome>
 )
 }

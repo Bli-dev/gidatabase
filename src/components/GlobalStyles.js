@@ -25,6 +25,7 @@ const GlobalStyles = createGlobalStyle`
 }
 
 body{
+    background-color:grey;
     background-image: url(${backgroundH});
     background-repeat: repeat-y;
     background-size: cover;
