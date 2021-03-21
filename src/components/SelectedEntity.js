@@ -68,7 +68,7 @@ const SelectedEntityContent = styled(motion.div)`
     flex-direction: column;
     justify-content: space-around;;
     align-items: center;
-    margin: 0.5rem;
+    margin: 1rem;
     border: 1px solid rgba(69, 69, 69, 0.5);
     border-radius: 1rem;
     box-shadow: 1px 1px 10px black;

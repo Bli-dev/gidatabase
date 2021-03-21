@@ -293,22 +293,22 @@ export const materialsToImageConverter = (material) => {
     }
 }
 
-//RATING NUMBER TO STARS CONVERSION
+//VISION NAME TO IMAGE CONVERTER
 export const visionTextToImageConverter = (vision) => {
-    switch (vision) {
-        case 'Anemo':
+    switch (vision.toLowerCase()) {
+        case 'anemo':
             return anemo;
-        case 'Cryo':
+        case 'cryo':
             return cryo;
-        case 'Dendro':
+        case 'dendro':
             return dendro;
-        case 'Electro':
+        case 'electro':
             return electro;
-        case 'Geo':
+        case 'geo':
             return geo;
-        case 'Hydro':
+        case 'hydro':
             return hydro;
-        case 'Pyro':
+        case 'pyro':
             return pyro;
         default:
             return 'image missing';
@@ -329,12 +329,10 @@ export const stringToDisplay = (incoming_string) => {
     }
 }
 
-//RATING CONVERSION
+//RATING NUMBER TO STARS CONVERSION
 export const rarityConversion = (key, value) => {
     if (key === 'rarity' || key === 'max_rarity') {
-        
         const totalStars = []
-        
         for (let i = 1; i <= value; i++){
             totalStars.push(star)
         }

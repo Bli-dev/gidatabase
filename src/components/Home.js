@@ -25,14 +25,14 @@ const Home = () => {
     }, [dispatch])
 
     const {entities} = useSelector((state) => state.initialEntities);
-    const { isEntityActive, selectedEntityName, isItemActive } = useSelector((state) => state.currentActiveData);
+    const { isEntityActive, selectedEntityName, selectedEntityItems, isItemActive } = useSelector((state) => state.currentActiveData);
     const {error} = useSelector((state) => state.error)
     
     return (
         <StyledHome>
-                {entities && (<Nav />)}
+            {entities && <Nav /> }
             {error ? <ErrorComponent /> :
-                isEntityActive ? <SelectedEntity /> :
+                isEntityActive && selectedEntityItems.lenghth !==0 ? <SelectedEntity /> :
                     isItemActive && selectedEntityName === 'artifacts' ? <ArtifactWeaponInfo /> :
                         isItemActive && selectedEntityName === 'characters' ? <CharacterInfo /> :
                             isItemActive && selectedEntityName === 'domains' ? <DomainInfo /> :
